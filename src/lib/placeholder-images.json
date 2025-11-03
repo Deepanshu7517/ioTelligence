@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-spline",
+      "description": "A placeholder for a 3D spline model in the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1668450433152-e56d7e8fe4ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMDNkfGVufDB8fHx8MTc2MTQ2ODc2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract 3d"
+    },
+    {
+      "id": "about-team",
+      "description": "A placeholder image for the team or office photo in the about section.",
+      "imageUrl": "https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdGFydHVwJTIwdGVhbXxlbnwwfHx8fDE3NjE1NDQzNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "startup team"
+    },
+    {
+      "id": "project-1",
+      "description": "A placeholder for the first featured project screenshot.",
+      "imageUrl": "https://images.unsplash.com/photo-1653933686802-86d21b59b03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYXNoYm9hcmQlMjB1aXxlbnwwfHx8fDE3NjE0OTY1OTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard ui"
+    },
+    {
+      "id": "project-2",
+      "description": "A placeholder for the second featured project screenshot.",
+      "imageUrl": "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzYxNTIwMTYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-3",
+      "description": "A placeholder for the third featured project screenshot.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWJzaXRlJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc2MTU0NDM3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "website analytics"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Avatar for the first testimonial.",
+      "imageUrl": "https://images.unsplash.com/photo-1648138285309-6d2a9daf9fd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmlsZSUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTQ5MzAyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Avatar for the second testimonial.",
+      "imageUrl": "https://images.unsplash.com/photo-1701096374092-bb70915fdc5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjE0Mzg1ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Avatar for the third testimonial.",
+      "imageUrl": "https://images.unsplash.com/photo-1560714759-60e6eb4e1db6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZW8lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE0NzQyODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ceo portrait"
+    }
+  ]
+}

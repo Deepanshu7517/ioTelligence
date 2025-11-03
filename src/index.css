@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #09090b; /* hsl(240 10% 3.9%) */
+    --foreground: #fafafa; /* hsl(0 0% 98%) */
+    --card: #121316; /* hsl(240 10% 3.9%) */
+    --card-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --popover: #09090b; /* hsl(240 10% 3.9%) */
+    --popover-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --primary: #7c3aed; /* hsl(262 84% 60%) */
+    --primary-foreground: #ffffff; /* hsl(0 0% 100%) */
+    --secondary: #111827; /* hsl(222 47% 11.2%) */
+    --secondary-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --muted: #111827; /* hsl(222 47% 11.2%) */
+    --muted-foreground: #a1a1aa; /* hsl(240 5% 64.9%) */
+    --accent: #248aff; /* hsl(180 100% 50%) */
+    --accent-foreground: #09090b; /* hsl(240 10% 3.9%) */
+    --destructive: #661616; /* hsl(0 62.8% 30.6%) */
+    --destructive-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --border: #111827; /* hsl(222 47% 11.2%) */
+    --input: #111827; /* hsl(222 47% 11.2%) */
+    --ring: #7c3aed; /* hsl(262 84% 60%) */
+    --radius: 0.5rem;
+    --text-gradient: linear-gradient(45deg, #f75bc3, #7c3aed, #91316b);
+  }
+
+  .dark {
+    --background: #09090b; /* hsl(240 10% 3.9%) */
+    --foreground: #fafafa; /* hsl(0 0% 98%) */
+    --card: #09090b; /* hsl(240 10% 3.9%) */
+    --card-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --popover: #09090b; /* hsl(240 10% 3.9%) */
+    --popover-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --primary: #7c3aed; /* hsl(262 84% 60%) */
+    --primary-foreground: #ffffff; /* hsl(0 0% 100%) */
+    --secondary: #111827; /* hsl(222 47% 11.2%) */
+    --secondary-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --muted: #111827; /* hsl(222 47% 11.2%) */
+    --muted-foreground: #a1a1aa; /* hsl(240 5% 64.9%) */
+    --accent: #00ffff; /* hsl(180 100% 50%) */
+    --accent-foreground: #09090b; /* hsl(240 10% 3.9%) */
+    --destructive: #661616; /* hsl(0 62.8% 30.6%) */
+    --destructive-foreground: #fafafa; /* hsl(0 0% 98%) */
+    --border: #111827; /* hsl(222 47% 11.2%) */
+    --input: #111827; /* hsl(222 47% 11.2%) */
+    --ring: #7c3aed; /* hsl(262 84% 60%) */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
