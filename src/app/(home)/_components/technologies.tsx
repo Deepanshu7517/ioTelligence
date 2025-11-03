@@ -39,9 +39,7 @@ export default function Technologies() {
           animation: marquee 5s linear infinite;
         }
 
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
+    
       `}</style>
     </Section>
   );
