@@ -1,9 +1,28 @@
+import { useState, useEffect } from "preact/hooks";
 import { Button } from "../../../components/ui/button";
 import { PlaceHolderImages } from "../../../lib/placeholder-images";
 import { ArrowRight } from "lucide-preact";
-// import Robot2 from "./robot2";
+import Robot2 from "./robot2";
+import robot2 from "../../../assets/robot2.png"
 export default function Hero() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-spline");
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
+
+  // Check screen size on mount and resize
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 768); // md breakpoint (768px)
+    };
+
+    // Check initially
+    checkScreenSize();
+
+    // Add resize listener
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const handleContactClick = (e: Event) => {
     e.preventDefault();
@@ -49,7 +68,7 @@ export default function Hero() {
           <div className="relative mx-auto max-w-md lg:max-w-none">
             {heroImage && (
               <img
-                src={heroImage.imageUrl}
+                src={robot2}
                 alt={heroImage.description}
                 width={1000}
                 height={1000}
@@ -58,9 +77,11 @@ export default function Hero() {
                 loading="eager"
               />
             )}
-            <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black">
-              {/* <Robot2 /> */}
-            </div>
+            {isLargeScreen && (
+              <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black">
+                <Robot2 />
+              </div>
+            )}
           </div>
         </div>
       </div>
