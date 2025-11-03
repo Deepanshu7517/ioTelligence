@@ -3,6 +3,7 @@ import { Section } from "../../../components/site/section";
 import { Button } from "../../../components/ui/button";
 import { Input } from "../../../components/ui/input";
 import { Textarea } from "../../../components/ui/textarea";
+import Slime3D from "./Slime3D";
 
 // Backend API endpoint
 const BACKEND_API_URL = 'http://localhost:5000/send-email';
@@ -70,7 +71,7 @@ export default function Contact() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-secondary/50"></div>
       <div className="grid gap-12 md:grid-cols-2">
         <div className="space-y-4 max-md:hidden">
-        
+          <Slime3D />
         </div>
         <form
           onSubmit={handleSubmit}
