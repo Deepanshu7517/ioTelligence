@@ -8,11 +8,14 @@ import {
 import { Section, SectionHeading } from "../../../components/site/section";
 import { projects } from "../../../lib/data";
 import { Button } from "../../../components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Projects() {
+  const navigate = useNavigate()
   const handleViewAllClick = (e: Event) => {
     e.preventDefault();
     console.log("View all projects clicked");
+    navigate("/products")
     // Add your navigation logic here
   };
 
@@ -47,7 +50,7 @@ export default function Projects() {
       </div>
       <div className="mt-12 text-center">
         <Button asChild size="lg" variant="outline">
-          <a href="#" onClick={handleViewAllClick}>See All Projects</a>
+          <button onClick={handleViewAllClick}>See All Projects</button>
         </Button>
       </div>
     </Section>

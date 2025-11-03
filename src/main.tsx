@@ -4,6 +4,8 @@ import './index.css'
 import Home from './app/page'
 import AboutPage from './app/about/page'
 import ProductsPage from './app/products/page'
+import ContactPage from './app/contact/page'
+import LightingCursor from './components/lightingCursor'
 
 // Define your route configuration
 const router = createBrowserRouter([
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element:<ProductsPage />
+  },
+  {
+    path: "/contact",
+    element:<ContactPage />
+  },
+  {
+    path: "/cursor",
+    element:<LightingCursor />
   },
 ])
 

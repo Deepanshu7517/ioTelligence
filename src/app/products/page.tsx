@@ -193,10 +193,11 @@ const energyBenefits = [
   "Integration with Production Data",
 ];
 
-
 export default function SolutionsPage() {
-  const caseImages = PlaceHolderImages.filter(p => p.id.startsWith("project-"));
-  
+  const caseImages = PlaceHolderImages.filter((p) =>
+    p.id.startsWith("project-")
+  );
+
   return (
     <>
       <Header />
@@ -235,9 +236,7 @@ export default function SolutionsPage() {
               <div className="relative mb-16 flex flex-wrap items-center justify-center gap-4 md:gap-8">
                 {transformationSteps.map((step, index) => (
                   <div key={step} className="flex items-center">
-                    <div
-                      className="rounded-lg border bg-card p-4 px-6 text-center shadow-md"
-                    >
+                    <div className="rounded-lg border bg-card p-4 px-6 text-center shadow-md">
                       <span className="font-semibold">{step}</span>
                     </div>
                     {index < transformationSteps.length - 1 && (
@@ -278,12 +277,15 @@ export default function SolutionsPage() {
               <Card key={index} className="flex flex-col">
                 <CardHeader>
                   <div className="relative aspect-video w-full">
-                     <img
-                        src={caseImages[index % caseImages.length]?.imageUrl || `https://picsum.photos/seed/${index+30}/400/300`}
-                        alt={useCase.title}
-                        className="rounded-t-lg object-cover h-56 w-full"
-                        data-ai-hint={useCase.imageHint}
-                      />
+                    <img
+                      src={
+                        caseImages[index % caseImages.length]?.imageUrl ||
+                        `https://picsum.photos/seed/${index + 30}/400/300`
+                      }
+                      alt={useCase.title}
+                      className="rounded-t-lg object-cover h-56 w-full"
+                      data-ai-hint={useCase.imageHint}
+                    />
                   </div>
                   <CardTitle className="mt-4 flex items-center gap-2 pt-2">
                     <useCase.icon className="h-6 w-6 text-primary" />
@@ -308,11 +310,13 @@ export default function SolutionsPage() {
           <SectionHeading title="Our Technology" />
 
           <Tabs defaultValue="eol" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
+            <TabsList className="h-auto flex-wrap justify-around md:flex">
               <TabsTrigger value="eol">EOL Testing</TabsTrigger>
               <TabsTrigger value="traceability">Part Traceability</TabsTrigger>
               <TabsTrigger value="oee">OEE Dashboard</TabsTrigger>
-              <TabsTrigger value="connectivity">Machine Connectivity</TabsTrigger>
+              <TabsTrigger value="connectivity">
+                Machine Connectivity
+              </TabsTrigger>
               <TabsTrigger value="energy">Energy Management</TabsTrigger>
             </TabsList>
             <TabsContent value="eol" className="mt-6">
@@ -326,8 +330,8 @@ export default function SolutionsPage() {
                 <CardContent>
                   <p className="mb-4 text-foreground/80">
                     Visualization dashboard for End of Line testing with a
-                    real-time monitoring interface, alarms and notifications, and
-                    control limits tracking.
+                    real-time monitoring interface, alarms and notifications,
+                    and control limits tracking.
                   </p>
                   <ul className="grid grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
                     {eolFeatures.map((feature, i) => (
@@ -360,10 +364,11 @@ export default function SolutionsPage() {
                   </ul>
                   <p className="mb-2 font-semibold">Process Flow:</p>
                   <p className="rounded-md bg-muted p-4 text-sm text-foreground/80">
-                    Parts Production → QR Code generation and pasting on crates/SFG → Outward
-                    Scanning on dispatch → All Processes → Parts Received for
-                    Assembly → Issue Observed (Record Critical Parameters, Check and
-                    validate process-specific details to identify batch)
+                    Parts Production → QR Code generation and pasting on
+                    crates/SFG → Outward Scanning on dispatch → All Processes →
+                    Parts Received for Assembly → Issue Observed (Record
+                    Critical Parameters, Check and validate process-specific
+                    details to identify batch)
                   </p>
                 </CardContent>
               </Card>
@@ -379,8 +384,8 @@ export default function SolutionsPage() {
                 <CardContent>
                   <p className="mb-4 text-foreground/80">
                     16 Major Loss capturing according to TPM, real-time OEE
-                    monitoring, and performance/quality monitoring with real-time
-                    SPC calculation.
+                    monitoring, and performance/quality monitoring with
+                    real-time SPC calculation.
                   </p>
                   <ul className="grid grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
                     {oeeFeatures.map((feature, i) => (
@@ -393,26 +398,26 @@ export default function SolutionsPage() {
                 </CardContent>
               </Card>
             </TabsContent>
-             <TabsContent value="connectivity" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Plug className="h-6 w-6 text-primary" />
-                      Machine Connectivity Status
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground/80">
-                      Live machine running status dashboard with real-time
-                      connectivity monitoring and device status visualization
-                      (Green: connected, Red: idle/disconnected) for various
-                      machine types including Vertical IMM, Horizontal IMM, Rotary
-                      IMM, VMC, etc.
-                    </p>
-                  </CardContent>
-                </Card>
+            <TabsContent value="connectivity" className="mt-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Plug className="h-6 w-6 text-primary" />
+                    Machine Connectivity Status
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-foreground/80">
+                    Live machine running status dashboard with real-time
+                    connectivity monitoring and device status visualization
+                    (Green: connected, Red: idle/disconnected) for various
+                    machine types including Vertical IMM, Horizontal IMM, Rotary
+                    IMM, VMC, etc.
+                  </p>
+                </CardContent>
+              </Card>
             </TabsContent>
-             <TabsContent value="energy" className="mt-6">
+            <TabsContent value="energy" className="mt-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">

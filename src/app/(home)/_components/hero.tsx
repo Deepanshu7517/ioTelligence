@@ -2,7 +2,7 @@ import { useState, useEffect } from "preact/hooks";
 import { Button } from "../../../components/ui/button";
 import { PlaceHolderImages } from "../../../lib/placeholder-images";
 import { ArrowRight } from "lucide-preact";
-import Robot2 from "./robot2";
+import Robot2 from "../../../components/ui/robot2";
 import robot2 from "../../../assets/robot2.png"
 export default function Hero() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-spline");

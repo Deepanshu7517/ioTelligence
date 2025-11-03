@@ -3,7 +3,7 @@ import { Section } from "../../../components/site/section";
 import { Button } from "../../../components/ui/button";
 import { Input } from "../../../components/ui/input";
 import { Textarea } from "../../../components/ui/textarea";
-import Slime3D from "./Slime3D";
+import Slime3D from "../../../components/ui/Slime3D";
 
 // Backend API endpoint
 const BACKEND_API_URL = 'http://localhost:5000/send-email';
