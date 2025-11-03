@@ -100,7 +100,7 @@
 // }
 
 
-import { useEffect, useState, type FC, type MouseEvent } from 'react';
+import { useEffect, useState, type FC } from 'react';
 
 // 1. Define the TypeScript interface for the position state
 interface Position {
