@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { Section } from "../../../components/site/section";
 import { Button } from "../../../components/ui/button";
 import { Input } from "../../../components/ui/input";
@@ -18,6 +18,23 @@ export default function Contact() {
   });
   const [status, setStatus] = useState<StatusType>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
+
+  // Check screen size on mount and resize
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 768); // md breakpoint (768px)
+    };
+
+    // Check initially
+    checkScreenSize();
+
+    // Add resize listener
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
@@ -70,9 +87,11 @@ export default function Contact() {
     <Section id="contact" className="relative">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-secondary/50"></div>
       <div className="grid gap-12 md:grid-cols-2">
-        <div className="space-y-4 max-md:hidden">
-          <Slime3D />
-        </div>
+        {isLargeScreen && (
+          <div className="space-y-4">
+            <Slime3D />
+          </div>
+        )}
         <form
           onSubmit={handleSubmit}
           className="space-y-6 rounded-lg border bg-card p-6 shadow-sm"
