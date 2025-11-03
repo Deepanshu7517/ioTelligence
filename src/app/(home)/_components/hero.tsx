@@ -1,7 +1,6 @@
 import { Button } from "../../../components/ui/button";
 import { PlaceHolderImages } from "../../../lib/placeholder-images";
 import { ArrowRight } from "lucide-preact";
-import Robot2 from "./robot2";
 export default function Hero() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-spline");
 
@@ -59,7 +58,7 @@ export default function Hero() {
               />
             )}
             <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black">
-              <Robot2 />
+              
             </div>
           </div>
         </div>
