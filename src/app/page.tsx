@@ -8,7 +8,7 @@ import Projects from "./(home)/_components/projects";
 import Technologies from "./(home)/_components/technologies";
 import Testimonials from "./(home)/_components/testimonials";
 import Contact from "./(home)/_components/contact";
-import ModernCursor from "../components/lightingCursor";
+import ModernCursor from "../components/site/modernCursor";
 
 export default function Home() {
   return (

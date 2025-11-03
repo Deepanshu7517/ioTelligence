@@ -24,11 +24,12 @@ import {
 import { services } from "../../lib/data";
 import Header from "../../components/site/header";
 import Footer from "../../components/site/footer";
-
+import ModernCursor from "../../components/site/modernCursor";
+import { motion } from "framer-motion";
 // Backend API endpoint
-const BACKEND_API_URL = 'http://localhost:5000/send-email';
+const BACKEND_API_URL = "http://localhost:5000/send-email";
 
-type StatusType = 'success' | 'error' | 'loading' | null;
+type StatusType = "success" | "error" | "loading" | null;
 
 const socialLinks = [
   { href: "#", icon: Linkedin },
@@ -54,7 +55,7 @@ function ContactForm() {
   });
 
   const [status, setStatus] = useState<StatusType>(null);
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const validateForm = () => {
     const newErrors = {
@@ -102,8 +103,8 @@ function ContactForm() {
       return;
     }
 
-    setStatus('loading');
-    setErrorMessage('');
+    setStatus("loading");
+    setErrorMessage("");
 
     try {
       // Prepare email data for backend
@@ -111,19 +112,17 @@ function ContactForm() {
         name: formData.name,
         email: formData.email,
         message: `
-Phone: ${formData.phone || 'Not provided'}
-Company: ${formData.company || 'Not provided'}
-Service Interest: ${formData.subject}
-
-Message:
-${formData.message}
-        `.trim()
+          Phone: ${formData.phone || "Not provided"}
+          Company: ${formData.company || "Not provided"}
+          Service Interest: ${formData.subject}
+          Message:${formData.message}
+        `.trim(),
       };
 
       const response = await fetch(BACKEND_API_URL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(emailData),
       });
@@ -131,8 +130,8 @@ ${formData.message}
       const data = await response.json();
 
       if (response.ok && data.success) {
-        setStatus('success');
-        
+        setStatus("success");
+
         // Reset form
         setFormData({
           name: "",
@@ -142,7 +141,7 @@ ${formData.message}
           subject: "",
           message: "",
         });
-        
+
         // Clear errors
         setErrors({
           name: "",
@@ -153,20 +152,24 @@ ${formData.message}
 
         setTimeout(() => setStatus(null), 5000);
       } else {
-        setStatus('error');
-        setErrorMessage(data.message || 'Failed to send email. Please try again.');
+        setStatus("error");
+        setErrorMessage(
+          data.message || "Failed to send email. Please try again."
+        );
         setTimeout(() => {
           setStatus(null);
-          setErrorMessage('');
+          setErrorMessage("");
         }, 5000);
       }
     } catch (error) {
-      console.error('Network error:', error);
-      setStatus('error');
-      setErrorMessage('Cannot connect to server. Please make sure the backend is running.');
+      console.error("Network error:", error);
+      setStatus("error");
+      setErrorMessage(
+        "Cannot connect to server. Please make sure the backend is running."
+      );
       setTimeout(() => {
         setStatus(null);
-        setErrorMessage('');
+        setErrorMessage("");
       }, 5000);
     }
   };
@@ -188,10 +191,22 @@ ${formData.message}
 
   return (
     <Section id="contact" className="relative pt-4 md:pt-12">
+      <ModernCursor />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-secondary/50"></div>
-      <SectionHeading title="Get In Touch" />
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <SectionHeading title="Get In Touch" />
+      </motion.div>
       <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <div className="space-y-8 lg:col-span-1">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-8 lg:col-span-1"
+        >
           <div className="space-y-2">
             <h3 className="font-headline text-xl font-semibold">
               Contact Information
@@ -230,9 +245,7 @@ ${formData.message}
             </p>
           </div>
           <div className="space-y-2">
-            <h3 className="font-headline text-xl font-semibold">
-              Follow Us
-            </h3>
+            <h3 className="font-headline text-xl font-semibold">Follow Us</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
@@ -245,23 +258,31 @@ ${formData.message}
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-2">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-2"
+        >
           <form
             onSubmit={handleSubmit}
             className="space-y-6 rounded-lg border bg-card p-6 shadow-sm"
           >
             {/* Success Message */}
-            {status === 'success' && (
+            {status === "success" && (
               <div className="rounded-lg bg-green-100 dark:bg-green-900/30 border border-green-500 p-4 text-green-700 dark:text-green-300">
                 <p className="font-semibold">Success!</p>
-                <p className="text-sm">Your message has been sent successfully. We'll get back to you within 24 hours!</p>
+                <p className="text-sm">
+                  Your message has been sent successfully. We'll get back to you
+                  within 24 hours!
+                </p>
               </div>
             )}
 
             {/* Error Message */}
-            {status === 'error' && (
+            {status === "error" && (
               <div className="rounded-lg bg-red-100 dark:bg-red-900/30 border border-red-500 p-4 text-red-700 dark:text-red-300">
                 <p className="font-semibold">Error!</p>
                 <p className="text-sm">{errorMessage}</p>
@@ -335,7 +356,10 @@ ${formData.message}
               <label htmlFor="subject" className="text-sm font-medium">
                 Subject/Service Interest
               </label>
-              <Select onValueChange={handleSelectChange} value={formData.subject}>
+              <Select
+                onValueChange={handleSelectChange}
+                value={formData.subject}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
@@ -374,24 +398,40 @@ ${formData.message}
             <Button
               type="submit"
               className="w-full shadow-lg transition-all hover:shadow-primary/40"
-              disabled={status === 'loading'}
+              disabled={status === "loading"}
             >
-              {status === 'loading' ? (
+              {status === "loading" ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Sending...
                 </span>
-              ) : status === 'success' ? (
-                'Sent Successfully!'
+              ) : status === "success" ? (
+                "Sent Successfully!"
               ) : (
-                'Send Message'
+                "Send Message"
               )}
             </Button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

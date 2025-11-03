@@ -8,14 +8,23 @@ import {
 import { Section, SectionHeading } from "../../../components/site/section";
 import { services } from "../../../lib/data";
 import { Button } from "../../../components/ui/button";
-
+import { motion } from "framer-motion";
 export default function Services() {
   return (
     <Section id="services">
-      <SectionHeading title="What We Do Best" subtitle="Our Services" />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -100 }}
+        transition={{ duration: 1 }}
+      >
+        <SectionHeading title="What We Do Best" subtitle="Our Services" />
+      </motion.div>
+      <motion.div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
-          <div
+          <motion.div
+            whileInView={{ scale: 1 , opacity:1}}
+            initial={{ scale: 0, opacity:0 }}
+            transition={{ duration: 0.3, delay:index * 0.2, ease:"linear"}}
             key={index}
             className="relative rounded-2xl p-[2px] bg-transparent transition-all
              before:absolute before:inset-0 before:rounded-2xl 
@@ -38,9 +47,9 @@ export default function Services() {
                 </Button>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

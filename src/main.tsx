@@ -5,29 +5,29 @@ import Home from './app/page'
 import AboutPage from './app/about/page'
 import ProductsPage from './app/products/page'
 import ContactPage from './app/contact/page'
-import LightingCursor from './components/lightingCursor'
+import LightingCursor from './components/site/modernCursor'
 
 // Define your route configuration
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Home />
+    element: <Home />
   },
   {
     path: "/about",
-    element:<AboutPage />
+    element: <AboutPage />
   },
   {
     path: "/products",
-    element:<ProductsPage />
+    element: <ProductsPage />
   },
   {
     path: "/contact",
-    element:<ContactPage />
+    element: <ContactPage />
   },
   {
     path: "/cursor",
-    element:<LightingCursor />
+    element: <LightingCursor />
   },
 ])
 

@@ -1,3 +1,4 @@
+import { motion, type Variants } from "framer-motion";
 import { Section, SectionHeading } from "../../components/site/section";
 import Header from "../../components/site/header";
 import Footer from "../../components/site/footer";
@@ -32,6 +33,7 @@ import {
   Gauge,
 } from "lucide-preact";
 import { PlaceHolderImages } from "../../lib/placeholder-images";
+import ModernCursor from "../../components/site/modernCursor";
 
 const digitalOperations = [
   {
@@ -198,35 +200,86 @@ export default function SolutionsPage() {
     p.id.startsWith("project-")
   );
 
+  const container: Variants = {
+    hidden: { opacity: 1 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // delay between child animations
+        delayChildren: 0.3, // optional
+      },
+    },
+  };
+
+  const itemMotion: Variants = {
+    hidden: { scale: 0, opacity: 0 },
+    show: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut" as any, // 👈 TypeScript fix
+      },
+    },
+  };
+
   return (
     <>
+      <ModernCursor />
       <Header />
       <main>
-        <Section className="md:py-8 lg:py-10">
-          <SectionHeading
-            title="Our Solutions"
-            subtitle="Driving Digital Transformation"
-          />
+        <Section className="md:py-8 lg:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <SectionHeading
+              title="Our Solutions"
+              subtitle="Driving Digital Transformation"
+            />
+          </motion.div>
           <div className="grid gap-16">
             <div id="digital-operations">
-              <h3 className="mb-8 text-center font-headline text-2xl font-bold">
+              <motion.h3
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mb-8 text-center font-headline text-2xl font-bold"
+              >
                 Digital Operations Focus
-              </h3>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              </motion.h3>
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              >
                 {digitalOperations.map((item, index) => (
-                  <Card key={index} className="text-center">
-                    <CardHeader>
-                      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <item.icon className="h-6 w-6" />
-                      </div>
-                      <CardTitle>{item.title}</CardTitle>
-                    </CardHeader>
-                  </Card>
+                  <motion.div key={index} variants={itemMotion}>
+                    <Card
+                      key={index}
+                      className="text-center hover:scale-105 transition-all duration-300"
+                    >
+                      <CardHeader>
+                        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <item.icon className="h-6 w-6" />
+                        </div>
+                        <CardTitle>{item.title}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
-            <div id="digital-transformation" className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              id="digital-transformation"
+              className="text-center"
+            >
               <h3 className="mb-8 font-headline text-2xl font-bold">
                 Digital Transformation Framework
               </h3>
@@ -264,7 +317,7 @@ export default function SolutionsPage() {
                 We build an end-to-end digital ecosystem with integrated and
                 contextualized data.
               </p>
-            </div>
+            </motion.div>
           </div>
         </Section>
         <Section id="camera-solutions" className="bg-secondary/50">

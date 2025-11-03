@@ -1,15 +1,26 @@
 import { Section, SectionHeading } from "../../../components/site/section";
 import { PlaceHolderImages } from "../../../lib/placeholder-images";
-import { milestones } from "../../../lib/data";
-
+import Count from "../../../components/countUp";
+import { motion } from "framer-motion";
 export default function About() {
   const teamImage = PlaceHolderImages.find((p) => p.id === "about-team");
 
   return (
     <Section id="about">
-      <SectionHeading title="Our Mission" />
+      <motion.div
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -100 }}
+        transition={{ duration: 1 }}
+      >
+        <SectionHeading title="Our Mission" />
+      </motion.div>
       <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="space-y-6">
+        <motion.div
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -100 }}
+          transition={{ duration: 1 }}
+          className="space-y-6"
+        >
           <p className="text-center text-lg text-foreground/80 lg:text-left">
             We're a team of passionate developers, designers, and
             problem-solvers on a mission to empower businesses with technology
@@ -27,10 +38,16 @@ export default function About() {
               />
             </div>
           )}
-        </div>
-        <div className="flex flex-col items-center gap-8">
+        </motion.div>
+        <motion.div
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 100 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col items-center gap-8"
+        >
           <h3 className="font-headline text-2xl font-bold">Our Journey</h3>
-          <div className="flex w-full max-w-sm justify-between gap-4">
+          <Count />
+          {/* <div className="flex w-full max-w-sm justify-between gap-4">
             {milestones.map((milestone, index) => (
               <div
                 key={index}
@@ -47,8 +64,8 @@ export default function About() {
                 )}
               </div>
             ))}
-          </div>
-        </div>
+          </div> */}
+        </motion.div>
       </div>
     </Section>
   );
