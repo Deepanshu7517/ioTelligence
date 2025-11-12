@@ -9,7 +9,9 @@ import { Section, SectionHeading } from "../../../components/site/section";
 import { services } from "../../../lib/data";
 import { Button } from "../../../components/ui/button";
 import { motion, type Variants } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 export default function Services() {
+  const navigate = useNavigate();
   const container: Variants = {
     hidden: { opacity: 1 },
     show: {
@@ -36,7 +38,7 @@ export default function Services() {
     <Section id="services">
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
+        initial={{ opacity: 0, y: 100 }}
         transition={{ duration: 1 }}
       >
         <SectionHeading title="What We Do Best" subtitle="Our Services" />
@@ -67,7 +69,9 @@ export default function Services() {
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="link" className="p-0">
+                <Button variant="link" onClick={() => {
+                  navigate("/tech-stack")
+                }} className="p-0">
                   Learn More
                 </Button>
               </CardContent>

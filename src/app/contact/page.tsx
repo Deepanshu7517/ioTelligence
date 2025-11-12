@@ -4,10 +4,7 @@ import {
   Mail,
   Building,
   User,
-  Clock,
-  Linkedin,
-  Github,
-  Instagram,
+  Clock
 } from "lucide-preact";
 
 import { Section, SectionHeading } from "../../components/site/section";
@@ -26,16 +23,12 @@ import Header from "../../components/site/header";
 import Footer from "../../components/site/footer";
 import ModernCursor from "../../components/site/modernCursor";
 import { motion } from "framer-motion";
+import { socialLinks } from "../../lib/data";
+import { Link } from "react-router-dom";
 // Backend API endpoint
 const BACKEND_API_URL = "http://localhost:5000/send-email";
 
 type StatusType = "success" | "error" | "loading" | null;
-
-const socialLinks = [
-  { href: "#", icon: Linkedin },
-  { href: "#", icon: Github },
-  { href: "#", icon: Instagram },
-];
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -248,13 +241,14 @@ function ContactForm() {
             <h3 className="font-headline text-xl font-semibold">Follow Us</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <a
+                <Link
                   key={index}
-                  href={social.href}
+                  to={social.href}
+                  target={"_blank"}
                   className="text-foreground/80 transition-colors hover:text-foreground"
                 >
                   <social.icon className="h-6 w-6" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -54,6 +54,7 @@ export default function Footer() {
                   <Link
                     key={index}
                     to={social.href}
+                    target={"_blank"}
                     className="text-secondary-foreground/80 transition-colors hover:text-secondary-foreground"
                     aria-label={`Follow us on ${social.icon.displayName}`}
                   >

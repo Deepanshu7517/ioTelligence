@@ -9,7 +9,7 @@ export default function About() {
     <Section id="about">
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
+        initial={{ opacity: 0, y: 100 }}
         transition={{ duration: 1 }}
       >
         <SectionHeading title="Our Mission" />

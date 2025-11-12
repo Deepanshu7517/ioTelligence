@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-preact";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
@@ -20,16 +20,18 @@ export default function Header() {
   }, []);
 
   const NavLinks = ({ className }: { className?: string }) => (
-    <nav className={cn("flex items-center gap-6 text-sm font-medium", className)}>
+    <nav
+      className={cn("flex items-center gap-6 text-sm font-medium", className)}
+    >
       {navLinks.map((link) => (
-        <Link
+        <NavLink
           key={link.href}
           to={link.href}
           onClick={() => setMobileMenuOpen(false)}
           className="text-foreground/80 transition-colors hover:text-foreground text-foreground opacity-80 hover:opacity-100 border-b-2 border-transparent hover:border-foreground duration-300"
         >
           {link.label}
-        </Link>
+        </NavLink>
       ))}
     </nav>
   );
@@ -61,16 +63,19 @@ export default function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full bg-background sm:max-w-xs">
-               <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+            <SheetContent
+              side="right"
+              className="w-full bg-background sm:max-w-xs"
+            >
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               <div className="flex h-full flex-col p-6">
                 <div className="mb-8 flex items-center justify-between">
                   <Logo />
                   <SheetTrigger asChild>
-                     <Button variant="ghost" size="icon">
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close menu</span>
-                     </Button>
+                    <Button variant="ghost" size="icon">
+                      <X className="h-6 w-6" />
+                      <span className="sr-only">Close menu</span>
+                    </Button>
                   </SheetTrigger>
                 </div>
                 <NavLinks className="flex-col items-start gap-4 text-base" />

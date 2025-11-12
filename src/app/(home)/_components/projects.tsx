@@ -9,6 +9,7 @@ import { Section, SectionHeading } from "../../../components/site/section";
 import { projects } from "../../../lib/data";
 import { Button } from "../../../components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 export default function Projects() {
   const navigate = useNavigate()
@@ -21,7 +22,14 @@ export default function Projects() {
 
   return (
     <Section id="projects" className="bg-secondary/50">
+      <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      >
+
       <SectionHeading title="Featured Projects" subtitle="Our Work" />
+      </motion.div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <Card key={index} className="overflow-hidden">

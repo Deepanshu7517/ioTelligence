@@ -6,7 +6,6 @@ import {
   PenTool,
   type LucideIcon,
   Linkedin,
-  Github,
   Instagram,
 } from "lucide-preact";
 import { PlaceHolderImages } from "./placeholder-images";
@@ -27,6 +26,7 @@ type Service = {
   title: string;
   description: string;
   icon: LucideIcon;
+  link:string
 };
 
 export const services: Service[] = [
@@ -35,30 +35,35 @@ export const services: Service[] = [
     description:
       "Building responsive, high-performance websites and web applications tailored to your business needs.",
     icon: CodeXml,
+    link:"https://en.wikipedia.org/wiki/Web_development"
   },
   {
     title: "Mobile Apps",
     description:
-      "Designing and developing native and cross-platform mobile applications for iOS and Android.",
+    "Designing and developing native and cross-platform mobile applications for iOS and Android.",
     icon: Smartphone,
+    link:""
   },
   {
     title: "Cloud Integration",
     description:
-      "Leveraging cloud platforms like AWS and Google Cloud to build scalable and resilient infrastructure.",
+    "Leveraging cloud platforms like AWS and Google Cloud to build scalable and resilient infrastructure.",
     icon: Cloud,
+    link:""
   },
   {
     title: "AI & Automation",
     description:
-      "Implementing AI-powered solutions and automation to enhance efficiency and drive growth.",
+    "Implementing AI-powered solutions and automation to enhance efficiency and drive growth.",
     icon: BrainCircuit,
+    link:""
   },
   {
     title: "UI/UX Design",
     description:
-      "Creating intuitive and visually appealing user interfaces that provide an exceptional user experience.",
+    "Creating intuitive and visually appealing user interfaces that provide an exceptional user experience.",
     icon: PenTool,
+    link:""
   },
 ];
 
@@ -142,7 +147,41 @@ export const footerLinks = {
 };
 
 export const socialLinks = [
-  { href: "#", icon: Linkedin },
-  { href: "#", icon: Github },
-  { href: "#", icon: Instagram },
+  { href: "https://www.linkedin.com/company/iotelligence-software-solutions/", icon: Linkedin },
+  { href: "https://www.instagram.com/iotelligence?utm_source=qr&igsh=aHZnbTY2eWZqYWVi", icon: Instagram },
+];
+export const techStackProjects = [
+  {
+    title: "IIoT Data Platform",
+    description: "A real-time data monitoring and analytics platform for industrial machinery, providing insights into operational efficiency and predictive maintenance.",
+    image: "https://images.unsplash.com/photo-1556740714-a8395b3bf30f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+    imageHint: "industrial dashboard",
+    stack: {
+      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts"],
+      backend: ["Node.js", "Express", "MQTT"],
+      database: ["PostgreSQL", "TimescaleDB"],
+    },
+  },
+  {
+    title: "Computer Vision QA System",
+    description: "An AI-powered quality assurance system that uses computer vision to detect defects in manufacturing lines with high accuracy.",
+    image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+    imageHint: "computer vision",
+    stack: {
+      frontend: ["React", "Material-UI"],
+      backend: ["Python", "Flask", "OpenCV", "TensorFlow"],
+      database: ["MongoDB"],
+    },
+  },
+  {
+    title: "Field Service Mobile App",
+    description: "A cross-platform mobile app for technicians to manage work orders, track parts inventory, and access technical documentation in the field.",
+    image: "https://plus.unsplash.com/premium_photo-1661877737564-3dfd7282efcb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+    imageHint: "mobile interface",
+    stack: {
+      frontend: ["React Native", "Redux"],
+      backend: ["Firebase"],
+      database: ["Firestore"],
+    },
+  },
 ];
