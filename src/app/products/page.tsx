@@ -287,16 +287,61 @@ export default function SolutionsPage() {
                 Our journey from data to value:
               </p>
               <div className="relative mb-16 flex flex-wrap items-center justify-center gap-4 md:gap-8">
-                {transformationSteps.map((step, index) => (
-                  <div key={step} className="flex items-center">
-                    <div className="rounded-lg border bg-card p-4 px-6 text-center shadow-md">
-                      <span className="font-semibold">{step}</span>
-                    </div>
-                    {index < transformationSteps.length - 1 && (
-                      <ArrowRight className="mx-2 hidden h-8 w-8 text-primary md:block" />
-                    )}
-                  </div>
-                ))}
+                {transformationSteps.map((step, index) => {
+                  const isLast = index === transformationSteps.length - 1;
+
+                  return (
+                    <motion.div
+                      key={step}
+                      className="flex items-center"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.3 }} // 👈 animate only once, when 30% visible
+                      transition={{
+                        duration: 0.45,
+                        delay: index * 0.25,
+                        ease: "easeOut",
+                      }}
+                    >
+                      {/* CARD */}
+                      <motion.div
+                        className="rounded-xl border bg-card p-4 px-6 text-center shadow-md relative"
+                        initial={{ scale: 0.9, rotate: -2 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.25 + 0.05,
+                          ease: "easeOut",
+                        }}
+                        style={{
+                          transform:
+                            index > 0 ? "translateX(-12px)" : "translateX(0px)",
+                        }}
+                      >
+                        <span className="font-semibold whitespace-nowrap">
+                          {step}
+                        </span>
+                      </motion.div>
+
+                      {/* ARROW — Hidden on mobile */}
+                      {!isLast && (
+                        <motion.div
+                          className="hidden md:flex"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: index * 0.25 + 0.15,
+                          }}
+                        >
+                          <ArrowRight className="mx-2 h-7 w-7 text-primary" />
+                        </motion.div>
+                      )}
+                    </motion.div>
+                  );
+                })}
               </div>
 
               <div className="mx-auto max-w-4xl">

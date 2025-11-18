@@ -153,8 +153,7 @@ export default function AboutPage() {
         </Section>
 
         <Section>
-          <SectionHeading title="Our Clients & Collaborators" />
-
+          <SectionHeading title="Trusted by ambitious global manufacturers for their production quality" />
           <div className="grid grid-cols-1 gap-12">
             <div>
               <h3 className="mb-8 flex items-center gap-3 font-headline text-2xl font-bold">
@@ -203,6 +202,7 @@ export default function AboutPage() {
                 <Handshake className="h-7 w-7 text-primary" />
                 Our Collaborators
               </h3>
+              
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                 {collaborators.map((collaborator, index) => (
                   <Card key={index} className="text-center">

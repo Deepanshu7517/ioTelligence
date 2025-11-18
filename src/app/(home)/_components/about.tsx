@@ -22,9 +22,9 @@ export default function About() {
           className="space-y-6"
         >
           <p className="text-center text-lg text-foreground/80 lg:text-left">
-            We're a team of passionate developers, designers, and
-            problem-solvers on a mission to empower businesses with technology
-            that scales.
+            We aim to build technology that inspires confidence—delivering
+            precise, data-driven AI and IoT solutions that help organizations
+            operate smarter and grow sustainably.
           </p>
           {teamImage && (
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg">

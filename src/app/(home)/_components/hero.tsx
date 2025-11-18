@@ -52,8 +52,7 @@ export default function Hero() {
             >
               Transform Your Business with{" "}
               <span className={"text-gradient"}>
-                {" "}
-                AI Computer Vision & IoT Solutions
+                Intelligent AI & IoT Ecosystems{" "}
               </span>
             </motion.h1>
             <motion.p
@@ -62,8 +61,8 @@ export default function Hero() {
               transition={{ duration: 1, delay: 0.7 }}
               className="mt-6 text-lg text-foreground/80"
             >
-              We design and develop full-stack applications that help startups
-              and enterprises grow faster.
+              We create reliable AI-powered IoT solutions that transform complex
+              data into precise insights and predictive intelligence.
             </motion.p>
             <motion.div
               initial={{ y: 100, opacity: 0 }}

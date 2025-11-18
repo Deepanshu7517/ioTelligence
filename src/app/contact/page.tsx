@@ -191,7 +191,7 @@ function ContactForm() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <SectionHeading title="Get In Touch" />
+        <SectionHeading title="Join us in leading the charge for next industrial revolution with AI" />
       </motion.div>
       <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
         <motion.div

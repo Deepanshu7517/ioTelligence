@@ -28,7 +28,7 @@ export default function Projects() {
       transition={{ duration: 0.5 }}
       >
 
-      <SectionHeading title="Featured Projects" subtitle="Our Work" />
+      <SectionHeading className={"[&>h2]:mb-2 [&>h2]:font-semibold [&>h2]:text-primary [&>h2]:text-lg [&>p]:font-headline [&>p]:font-bold [&>p]:tracking-tight [&>p]:text-3xl [&>p]:text-foreground [&>p]:md:text-4xl"} title="From Automobile to Consumer Goods, a wide range of applications for every manufacturing" subtitle="Featured Projects" />
       </motion.div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
