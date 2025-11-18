@@ -5,7 +5,6 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
-  SiReact,
   SiNodedotjs,
   SiExpress,
   SiPostgresql,

@@ -8,7 +8,6 @@ import ContactPage from "./app/contact/page";
 import LightingCursor from "./components/site/modernCursor";
 import ScrollToTop from "./components/site/ScrollToTop";
 import TechStackPage from "./app/teck-stack/page";
-import { useEffect } from "preact/hooks";
 
 // Define your route configuration
 const router = createBrowserRouter([
